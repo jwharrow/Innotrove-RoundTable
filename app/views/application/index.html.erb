@@ -1,1 +1,10 @@
-<h1>hello chris</h1>
+<h2>Site Manifesto</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed eros posuere, varius velit ut, eleifend tortor. Sed egestas pretium nisi quis blandit. Integer efficitur nibh nulla, in molestie arcu posuere ut. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus fringilla, eros nec auctor ultrices, lacus leo suscipit lorem, nec faucibus libero risus non ipsum. Donec mattis luctus nibh, nec vulputate odio malesuada vitae. Vestibulum semper quis purus at ultricies. Mauris elementum sem mauris, quis rhoncus turpis facilisis at. Nulla facilisi.</p>
+
+<h2>Recent Games</h2>
+<div class="recent-games">
+  <% @games.each do |game| %>
+    <span class="title"><%= game.name %></span><br>
+    <span class="blurb"><%= truncate(game.description, length: 200) %></span><br>
+  <% end %>
+</div>
