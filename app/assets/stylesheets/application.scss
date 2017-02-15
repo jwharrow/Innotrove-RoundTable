@@ -1,4 +1,4 @@
-/*
+ *
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -16,3 +16,37 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.container {
+  margin: 20px auto;
+  width: 800px;
+  padding: 20px 20px 20px 20px;
+  border: 1px dotted gray;
+  background-color: white;
+  text-align: center;
+}
+
+.nav {
+  width: 800px;
+  height: 25px;
+  border: 1px dotted gray;
+  text-align: right;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.title {
+  font-size: 25px;
+}
+
+.blurb {
+  font-size: 14px;
+  font-style: italic;
+}
+
