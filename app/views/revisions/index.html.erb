@@ -2,8 +2,8 @@
   <%= link_to "Add a Revision!", new_game_revision_path(@game) %><br>
   <%= link_to "Return to Game View", game_path(@game) %><br><br>
 <div class="recent-games">
-  <% @revisions.each do |revision| %>
-    <span class="title"><%= link_to revision.name, game_revision_path(revision.game, revision) %></span><br>
+  <% @revisions.each_with_index do |revision, index| %>
+    <span class="title"> <%= "#{index+1}. " %> <%= link_to revision.name, game_revision_path(revision.game, revision) %></span><br>
     <span class="creator"> created by <%= revision.rev_username %> on <%= revision.standard_created_at %></span><br>
     <span class="blurb"><%= truncate(revision.text_description, length: 200) %></span><br>
   <% end %>

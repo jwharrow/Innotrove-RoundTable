@@ -51,6 +51,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'simplecov', :require => false, :group => :test
+  gem 'faker'
 end
 
 group :development do
