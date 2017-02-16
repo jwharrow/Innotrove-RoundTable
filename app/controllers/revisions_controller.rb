@@ -5,8 +5,10 @@ class RevisionsController < ApplicationController
   end
 
   def show
-    @revision = Revision.find_by(id: params[:id])
-    @game = @revision.game
+    p 'RRRR' * 100
+    p params
+    @game = Game.find_by(id: params[:game_id])
+    @revision = @game.revisions.last
   end
 
   def new
