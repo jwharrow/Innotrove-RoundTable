@@ -1,1 +1,11 @@
-revisions show
+<div>
+  <h2><%= @revision.name %></h2>
+  <h5><%= @revision.created_at.strftime('%b %d, %Y') %></h5>
+  <div><%= raw @revision.description %></div>
+</div>
+<br>
+<br>
+<%= link_to "Current Version", game_path(@revision.game) %>
+<br>
+<br>
+<%= link_to "Show all Revisions", game_revisions_path(@revision.game) %>
