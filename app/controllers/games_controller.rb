@@ -4,20 +4,20 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
-    @latest_game = @game.revisions.last
+    @game = Game.find_by(id: params[:id])
 
     if @game
+      @latest_game = @game.revisions.last
       render :show
     else
-      render :file => "#{Rails.root}/public/422.html",  :status => 404
+      render :file => "#{Rails.root}/public/404.html",  :status => 404
     end
   end
 
   def new
     if user_signed_in?
       @game = Game.new
-      render :new
+      render :new, :status => 200
     else
       render :file => "#{Rails.root}/public/422.html",  :status => 422
     end
