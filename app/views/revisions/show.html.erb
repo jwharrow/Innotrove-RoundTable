@@ -1,1 +1,7 @@
-revisions show
+<div class="col-sm-11 col-xs-12 blog-content">
+  <h2 class="text-center"><%= @revision.name %></h2>
+  <h5 class="text-center"><%= @game.created_at.strftime('%b %d, %Y') %></h5>
+  <div><%= raw @game.description %></div>
+</div>
+
+<%= link_to "Edit", new_game_revision_path(@game) %>

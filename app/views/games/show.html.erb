@@ -1,7 +1,14 @@
 <div class="col-sm-11 col-xs-12 blog-content">
-  <h2 class="text-center"><%= @game.name %></h2>
-  <h5 class="text-center"><%= @game.created_at.strftime('%b %d, %Y') %></h5>
-  <div><%= raw @game.description %></div>
-</div>
+  <% if @game.revisions.length > 1 %>
+    <p>Current Revision Count: <%= @game.revisions.count %>,
+    <%= link_to "Add a Revision!", new_game_revision_path(@game) %>
+    </p>
+  <% else %>
+    <p>No Revisions Yet: <%= link_to "Create a Revision!", new_game_revision_path(@game) %></p>
+  <% end %>
 
-<%= link_to "Edit", edit_game_path(@game) %>
+  <h2 class="text-center"><%= @latest_game.name %></h2>
+  <h5 class="text-center">Created: <%= @game.created_at.strftime('%b %d, %Y') %></h5>
+  <h5 class="text-center">Last Updated: <%= @latest_game.created_at.strftime('%b %d, %Y') %></h5>
+  <div><%= raw @latest_game.description %></div>
+</div>

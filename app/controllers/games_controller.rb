@@ -5,6 +5,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @latest_game = @game.revisions.last
   end
 
   def new
@@ -14,9 +15,11 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     # TODO TAKE THIS LINE OUT!!!!
-    @game.update_attributes(creator_id: 1)
-
+    @game.update_attributes(creator_id: current_user.id)
+    p "GameCreate" * 100
+    p game_params
     if @game.save
+      @game.revisions.build(game_params)
       redirect_to game_path(@game)
     else
       render :new
