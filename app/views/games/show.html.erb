@@ -3,3 +3,5 @@
   <h5 class="text-center"><%= @game.created_at.strftime('%b %d, %Y') %></h5>
   <div><%= raw @game.description %></div>
 </div>
+
+<%= link_to "Edit", edit_game_path(@game) %>
