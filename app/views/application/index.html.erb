@@ -4,8 +4,8 @@
 <h2>Recent Games</h2>
 <div class="recent-games">
   <% @games.each do |game| %>
-    <span class="title"><%= link_to game.name, game %></span><br>
+    <span class="title"><%= link_to game.last_revision.name, game %></span><br>
     <span class="creator"> created by <%= game.creator.username %> on <%= game.standard_created_at %></span><br>
-    <span class="blurb"><%= truncate(game.text_description, length: 200) %></span><br>
+    <span class="blurb"><%= truncate(game.last_revision.text_description, length: 200) %></span><br>
   <% end %>
 </div>

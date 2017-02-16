@@ -1,7 +1,7 @@
 class Game < ApplicationRecord
   has_many :revisions
 
-  scope :recent, -> { order("created_at DESC").limit(5) }
+  scope :recent, -> { order("updated_at DESC").limit(5) }
   validates :name, :description, :creator_id, presence: true
   belongs_to :creator, class_name: :User
 
@@ -22,4 +22,9 @@ class Game < ApplicationRecord
     nils -= collabs.length
     collabs.uniq.length + nils
   end
+
+  def last_revision
+    self.revisions.last
+  end
+
 end
