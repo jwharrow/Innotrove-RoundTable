@@ -1,0 +1,6 @@
+<h2>All Game Ideas</h2>
+<div class="list-all-games">
+  <% @games.each do |game| %>
+    <span class="title"><%= link_to game.name, game %></span><br>
+  <% end %>
+</div>

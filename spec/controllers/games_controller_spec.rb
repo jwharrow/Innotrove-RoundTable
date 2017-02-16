@@ -12,7 +12,7 @@ describe GamesController do
 
     it 'assigns @games' do
       get :index
-      expect(assigns(:games)).to eq(Game.all)
+      expect(assigns(:games)).to eq(Game.all.sort_by{ |g| g.name.downcase })
     end
 
     it 'renders the :index template' do
@@ -21,17 +21,17 @@ describe GamesController do
     end
   end
 
-  describe 'GET #new' do
-    it 'responds with status code 200' do
-      get :new
-      expect(response).to have_http_status 200
-    end
-
-    it 'renders the :new template' do
-      get :new
-      expect(response).to render_template(:new)
-    end
-  end
+  # describe 'GET #new' do
+  #   it 'responds with status code 200' do
+  #     get :new
+  #     expect(response).to have_http_status 200
+  #   end
+  #
+  #   it 'renders the :new template' do
+  #     get :new
+  #     expect(response).to render_template(:new)
+  #   end
+  # end
 
   # describe 'GET #edit' do
   #   it 'responds with status code 200' do
