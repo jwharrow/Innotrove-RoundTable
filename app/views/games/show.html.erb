@@ -1,6 +1,6 @@
 <div class="col-sm-11 col-xs-12 blog-content">
   <% if @game.revisions.length > 1 %>
-    <p>Current Revision Count: <%= @game.revisions.count %>,
+    <p>Revision Count: <%= @game.revisions.count - 1 %>,
     <%= link_to "Add a Revision!", new_game_revision_path(@game) %>
     </p>
   <% else %>
