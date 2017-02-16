@@ -14,12 +14,14 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    # TODO TAKE THIS LINE OUT!!!!
     @game.update_attributes(creator_id: current_user.id)
-    p "GameCreate" * 100
-    p game_params
+    # p "GameCreate" * 100
+    # p game_params
     if @game.save
-      @game.revisions.build(game_params)
+      @revision = Revision.new(game_params)
+      @revision.update_attributes(game_id: @game.id)
+      @revision.update_attributes(collaborator_id: current_user.id)
+      @game.revisions << @revision
       redirect_to game_path(@game)
     else
       render :new
