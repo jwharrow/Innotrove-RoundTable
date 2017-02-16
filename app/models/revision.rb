@@ -11,4 +11,12 @@ class Revision < ApplicationRecord
   def standard_created_at
     self.created_at.strftime("%Y.%m.%d")
   end
+
+  def rev_username
+    if self.collaborator == nil
+      "anonymous"
+    else
+      self.collaborator.username
+    end
+  end
 end
