@@ -1,6 +1,6 @@
 class RevisionsController < ApplicationController
   def index
-    @game = Game.find_by(id: params[:id])
+    @game = Game.find_by(id: params[:game_id])
     @revisions = @game.revisions
   end
 
