@@ -27,4 +27,12 @@ class Game < ApplicationRecord
     self.revisions.last
   end
 
+  def self.by_latest_revision
+    self.all.sort_by { |game| game.last_revision.created_at}.reverse
+  end
+
+  def self.five_latest
+    self.by_latest_revision[0..4]
+  end
+
 end
