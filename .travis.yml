@@ -10,12 +10,10 @@ services:
   - postgresql
 
 script:
-  - RAILS_ENV=test bundle exec rake db:create
-  - RAILS_ENV=test bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
   - bundle exec rake
 
 before_script:
   - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database roundtable_test;' -U postgresql
+  - psql -c 'create database roundtable_test;' -U postgres
 
