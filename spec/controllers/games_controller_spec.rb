@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe GamesController do
-  let!(:game) { Game.create!(name: "Battleship", description: "BUT WITH ROCKS", creator_id: 1)}
+  let!(:user) { User.first || User.create!(username: "NickDevlin", email: "nick@devlins.gov", password: "opensource!")}
+  let!(:game) { Game.create!(name: "Battleship", description: "BUT WITH ROCKS", creator: user)}
 
   describe 'GET #index' do
     it 'responds with status code 200' do

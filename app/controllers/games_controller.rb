@@ -13,8 +13,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    # TODO TAKE THIS LINE OUT!!!!
-    @game.update_attributes(creator_id: 1)
+    @game.update_attributes(creator_id: current_user.id)
 
     if @game.save
       redirect_to game_path(@game)
