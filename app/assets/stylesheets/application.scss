@@ -32,6 +32,11 @@ body {
   border-left: 1px solid black;
 }
 
+.main-content {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
 .nav-container {
   margin: 0 auto;
   max-width: 70%;
@@ -39,6 +44,24 @@ body {
   font-family: arial;
   border-right: 1px solid black;
   border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.footer-container {
+  margin: 0 auto;
+  padding-top: 5px;
+  max-width: 70%;
+  background-color: white;
+  text-align: center;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  background: linear-gradient(to bottom, rgba(89,106,114,1) 0%,rgba(0,0,0,0) 100%);
+}
+
+.foot-note {
+  font-size: 10px;
+  color: white;
 }
 
 .title-container {
@@ -47,15 +70,22 @@ body {
   text-align: center;
   margin: 0 auto;
   max-width: 70%;
-  background-color: #b5bdc8;
+  background: linear-gradient(to bottom, rgba(89,106,114,1) 0%,rgba(0,0,0,0) 100%);
   font-family: cursive;
   border-right: 1px solid black;
   border-left: 1px solid black;
 }
 
+.title-note {
+  font-size: 11px;
+  color: white;
+  font-family: monospace;
+  font-style: italic;
+}
+
 .nav {
   max-width: 100%;
-  height: 35px;
+  height: 33px;
   text-align: right;
   padding-right: 0px;
   padding-top: 5px;
@@ -67,6 +97,9 @@ body {
 }
 
 .nav li a {
+  border-left: 1px solid black;
+  padding-right: 20px;
+  padding-left: 20px;
   list-style-type: none;
   display: inline;
   color: white;
@@ -81,6 +114,7 @@ body {
 h1 {
   font-size: 70px;
   color: white;
+  font-weight: bold;
 }
 
 h2 {

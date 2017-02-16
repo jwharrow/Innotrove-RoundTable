@@ -9,18 +9,21 @@
   </head>
 <div class="nav-container">
   <div class="nav">
-    <li><a href="default.asp">Home</a></li>
-    <li><a href="news.asp">News</a></li>
-    <li><a href="contact.asp">Contact</a></li>
-    <li><a href="about.asp">About</a></li>
+    <%= render "application/nav" %>
   </div>
 </div>
 <div class="title-container">
   <h1>RoundTable</h1>
+  <p class="title-note">The idea-pedia for board game creations</p>
 </div>
   <body>
     <div class="container">
-    <%= yield %>
+      <div class="main-content">
+        <%= yield %>
+      </div>
+    </div>
+    <div class="footer-container">
+      <p class="foot-note">InnoTrove Industries</p>
     </div>
   </body>
 </html>
