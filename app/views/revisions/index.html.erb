@@ -1,1 +1,8 @@
-revisions index
+<h2>Revisions for <%= @game.name %></h2>
+<div class="recent-games">
+  <% @revisions.each do |revision| %>
+    <span class="title"><%= link_to revision.name, game_revision_path(revision.game, revision) %></span><br>
+    <span class="creator"> created by <%= revision.collaborator.username %> on <%= revision.standard_created_at %></span><br>
+    <span class="blurb"><%= truncate(revision.text_description, length: 200) %></span><br>
+  <% end %>
+</div>
