@@ -44,6 +44,27 @@ describe GamesController do
     end
   end
 
+  describe 'PUT #update' do
+    context "with good data" do 
+      it 'responds with status code 302' do
+        put(:update, params: {id: game.id, game: { name: "Battleship with Rocks" }})
+        expect(response).to have_http_status 302
+      end
+
+      it 'updates the database' do
+        put(:update, params: {id: game.id, game: { name: "Battleship with Rocks" }})
+        @game = Game.find_by(id: game.id)
+        expect(@game.name).to eq("Battleship with Rocks")
+      end
+    end
+    context "with bad data" do
+      it 'renders edit page' do
+        put(:update, params: {id: game.id, game: { name: "" }})
+        expect(response).to render_template(:edit)
+      end 
+    end 
+  end
+
   describe 'GET #show' do
     it 'responds with status code 200' do
       get :show, params: { id: game.id }

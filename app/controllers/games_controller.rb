@@ -16,7 +16,15 @@ class GamesController < ApplicationController
   end
 
   def update
+    @game = Game.find_by(id: params[:id])
 
+    @game.update_attributes(game_params)
+
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end
   end
 
   def patch
