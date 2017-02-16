@@ -15,8 +15,6 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     @game.update_attributes(creator_id: current_user.id)
-    # p "GameCreate" * 100
-    # p game_params
     if @game.save
       @revision = Revision.new(game_params)
       @revision.update_attributes(game_id: @game.id)
