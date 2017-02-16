@@ -11,6 +11,34 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def edit
+    @game = Game.find_by(id: params[:id])   
+  end
+
+  def update
+    @game = Game.find_by(id: params[:id])
+
+    @game.update_attributes(game_params)
+
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end
+  end
+
+  def patch
+    @game = Game.find_by(id: params[:id])
+
+    @game.update_attributes(game_params)
+
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :edit
+    end 
+  end
+
 
   def create
     @game = Game.new(game_params)
@@ -27,6 +55,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :description)
+    params.require(:game).permit(:name, :description, :image)
   end
 end
