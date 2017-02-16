@@ -16,6 +16,15 @@ class RevisionsController < ApplicationController
     @revision = Revision.new(revision_params)
     @revision.update_attributes(game_id: params[:game_id])
     # TODO logged_in helper?
+    if user_signed_in?
+      @revision.update_attributes(collaborator_id: current_user.id)
+    end
+
+    if @revision.save
+      redirect_to game_path(@game)
+    else
+      render :new
+    end
   end
 
   private
