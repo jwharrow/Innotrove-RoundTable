@@ -7,14 +7,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+<div class="nav-container">
+  <div class="nav">
+    <%= render "application/nav" %>
+  </div>
+</div>
+<div class="title-container">
+  <h1>RoundTable</h1>
+  <p class="title-note">The idea-pedia for board game creations</p>
+</div>
   <body>
     <div class="container">
-      <div class="nav">
-        <a href="/">Home</a>
+      <div class="main-content">
+        <%= yield %>
       </div>
-      <h1>RoundTable</h1>
-    <%= yield %>
+    </div>
+    <div class="footer-container">
+      <p class="foot-note">InnoTrove Industries</p>
     </div>
   </body>
 </html>
