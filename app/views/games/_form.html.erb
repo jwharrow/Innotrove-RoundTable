@@ -21,6 +21,18 @@
   <div class="form-group">
     <%= f.input :description, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
   </div>
+    Revisions:
+    <ul>
+      <%= f.fields_for :revisions do |revisions_form| %>
+        <li>
+          <%= revisions_form.label :name %><br>
+          <%= revisions_form.text_field :name %><br>
+
+          <%= revisions_form.label :description %><br>
+          <%= revisions_form.text_field :description %><br>
+        </li>
+      <% end %>
+    </ul>
 
   <div class="form-group">
     <%= f.button :submit %>

@@ -10,6 +10,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    2.times { @game.revisions.build }
   end
 
   def create
@@ -31,6 +32,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:name, :description, :image)
+    params.require(:game).permit(:name, :description, :image, revisions_attributes: [:id, :name, :description, :creator_id, :_destroy])
   end
 end
