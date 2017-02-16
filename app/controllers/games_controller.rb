@@ -16,6 +16,10 @@ class GamesController < ApplicationController
     @game.update_attributes(creator_id: current_user.id)
 
     if @game.save
+      @revision = Revision.new(game_params)
+      @revision.update_attributes(game_id: @game.id)
+      @revision.update_attributes(collaborator_id: current_user.id)
+      @game.revisions << @revision
       redirect_to game_path(@game)
     else
       render :new
