@@ -1,3 +1,20 @@
-<li><a href="/">Home</a></li>
-<li><a href="/users/new">Register</a></li>
-<li><a href="/sessions/new">Login</a></li>
+
+<% if !user_signed_in? %>
+  <div class="buttons">
+    <div class="button">
+      <li><a href="/">Home</a></li>
+      <li><%= link_to "Register", new_user_registration_path %></li>
+      <li><%= link_to "Login", new_user_session_path %></li>
+    </div>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+  <div class="buttons">
+    <div class="button">
+      <li><a href="/">Home</a></li>
+      <li><%= link_to "Create New Game", new_game_path %></li>
+      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+    </div>
+  </div>
+<% end %>
