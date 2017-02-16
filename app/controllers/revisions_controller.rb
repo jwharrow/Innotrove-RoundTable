@@ -9,10 +9,12 @@ class RevisionsController < ApplicationController
   end
 
   def new
+    @game = Game.find_by(id: params[:game_id])
     @revision = Revision.new
   end
 
   def create
+    @game = Game.find_by(id: params[:game_id])
     @revision = Revision.new(revision_params)
     @revision.update_attributes(game_id: params[:game_id])
 
