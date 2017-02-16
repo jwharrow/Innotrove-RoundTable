@@ -15,7 +15,7 @@ class RevisionsController < ApplicationController
   def create
     @revision = Revision.new(revision_params)
     @revision.update_attributes(game_id: params[:game_id])
-    # TODO logged_in helper?
+
     if user_signed_in?
       @revision.update_attributes(collaborator_id: current_user.id)
     end
