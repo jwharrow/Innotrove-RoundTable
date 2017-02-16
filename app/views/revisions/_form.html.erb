@@ -1,4 +1,4 @@
-<%= simple_form_for @revision do |f| %>
+<%= simple_form_for(@revision, url: game_revisions_path(@game)) do |f| %>
   <% if @revision.errors.any? %>
     <div id="error_explanation">
       <h2>

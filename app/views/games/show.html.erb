@@ -1,7 +1,9 @@
-<div class="col-sm-11 col-xs-12 blog-content">
-  <h2 class="text-center"><%= @game.name %></h2>
-  <h5 class="text-center"><%= @game.created_at.strftime('%b %d, %Y') %></h5>
+<div>
+  <h2><%= @game.name %></h2>
+  <h5><%= @game.created_at.strftime('%b %d, %Y') %></h5>
   <div><%= raw @game.description %></div>
 </div>
+<br>
+<br>
+<%= link_to "Create Revision", new_game_revision_path(@game) %>
 
-<%= link_to "Edit", edit_game_path(@game) %>
