@@ -12,4 +12,14 @@ class Game < ApplicationRecord
   def standard_created_at
     self.created_at.strftime("%Y.%m.%d")
   end
+
+  def collaborator_count
+    collabs = self.revisions.pluck(:collaborator_id)
+    nils = collabs.length
+    collabs.select! do |collab|
+      collab != nil
+    end
+    nils -= collabs.length
+    collabs.uniq.length + nils
+  end
 end
