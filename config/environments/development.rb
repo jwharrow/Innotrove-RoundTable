@@ -30,6 +30,8 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
+  # TODO Need to configure this to actual s
+  config.action_mailer.default_url_options = { host: 'fast-lake-75482.herokuapp.com', port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
