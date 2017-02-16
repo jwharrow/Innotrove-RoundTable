@@ -4,7 +4,8 @@ feature "visiting the homepage" do
   scenario "the user sees a list of recent games and can view them" do
     user = User.first || User.create!(username: "NickDevlin", email: "nick@devlins.gov", password: "opensource!")
     most_recent_game = Game.create(name: "Battlerockets", description: "Throwing rocks is only half the battle.", creator: user)
-
+    most_recent_game.revisions << Revision.new(name: "Battlerockets", description: "Throwing rocks is only half the battle.", collaborator: user)
+    most_recent_game.save!
     visit "/"
 
     within(".recent-games") do

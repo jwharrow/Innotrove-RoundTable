@@ -6,6 +6,7 @@ class RevisionsController < ApplicationController
 
   def show
     @revision = Revision.find_by(id: params[:id])
+    @game = @revision.game
   end
 
   def new
