@@ -1,8 +1,10 @@
 <div class="col-sm-11 col-xs-12 blog-content">
   <% if @game.revisions.length > 1 %>
     <p>Revision Count: <%= @game.revisions.count - 1 %>,
-    <%= link_to "Add a Revision!", new_game_revision_path(@game) %>
+      <%= link_to "See Revision History",  game_revisions_path(@game) %>,
+      <%= link_to "Add a Revision!", new_game_revision_path(@game) %>
     </p>
+    <p>Collaborators: <%= @game.collaborator_count %></p>
   <% else %>
     <p>No Revisions Yet: <%= link_to "Create a Revision!", new_game_revision_path(@game) %></p>
   <% end %>
