@@ -24,7 +24,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 70%;
+  max-width: 60% !important;
   padding: 20px 20px 20px 20px;
   background-color: white;
   text-align: center;
@@ -39,7 +39,7 @@ body {
 
 .nav-container {
   margin: 0 auto;
-  max-width: 70%;
+  max-width: 60% !important;
   background-color: white;
   font-family: arial;
   border-right: 1px solid black;
@@ -49,19 +49,20 @@ body {
 
 .footer-container {
   margin: 0 auto;
-  padding-top: 5px;
-  max-width: 70%;
+  padding-top: 100px;
+  max-width: 60% !important;
   background-color: white;
   text-align: center;
   border-right: 1px solid black;
   border-left: 1px solid black;
   border-bottom: 1px solid black;
-  background: linear-gradient(to bottom, rgba(89,106,114,1) 0%,rgba(0,0,0,0) 100%);
 }
 
 .foot-note {
+  bottom-margin: 0;
   font-size: 10px;
   color: white;
+  background: linear-gradient(to bottom, rgba(89,106,114,1) 0%,rgba(90,100,115,1) 100%);
 }
 
 .title-container {
@@ -69,7 +70,7 @@ body {
   padding-bottom: 15px;
   text-align: center;
   margin: 0 auto;
-  max-width: 70%;
+  max-width: 60% !important;
   background: linear-gradient(to bottom, rgba(89,106,114,1) 0%,rgba(0,0,0,0) 100%);
   font-family: cursive;
   border-right: 1px solid black;
