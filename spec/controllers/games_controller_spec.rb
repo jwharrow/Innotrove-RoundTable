@@ -32,6 +32,18 @@ describe GamesController do
     end
   end
 
+  describe 'GET #edit' do
+    it 'responds with status code 200' do
+      get :edit, params: { id: game.id }
+      expect(response).to have_http_status 200
+    end
+
+    it 'renders the :edit template' do
+      get :edit, params: { id: game.id }
+      expect(response).to render_template(:edit)
+    end
+  end
+
   describe 'GET #show' do
     it 'responds with status code 200' do
       get :show, params: { id: game.id }
