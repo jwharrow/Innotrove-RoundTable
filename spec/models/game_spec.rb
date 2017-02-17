@@ -24,6 +24,7 @@ describe Game do
         game = Game.create!(name: "Battlerocks", description: "Throwing rocks is only half the battle.", creator: user)
         game.revisions << Revision.new(name: "Battlerocks", description: "Throwing rocks is only half the battle.", collaborator: user)
         game.save
+        p game.revisions.first
       end
       it "has game objects" do
         expect(Game.five_latest.first).to be_an_instance_of(Revision)
